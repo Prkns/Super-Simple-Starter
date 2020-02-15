@@ -1,0 +1,10 @@
+# Misc
+.DS_Store
+.nvmrc
+TODO
+
+# Standard Ignores
+node_modules
+
+# Production
+dist
