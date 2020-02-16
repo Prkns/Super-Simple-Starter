@@ -4,12 +4,8 @@
   "description": "Starter framework for building sites without data sources",
   "main": "gulpfile.js",
   "scripts": {
-    "srv:watch": "gulp watch",
-    "srv:serve": "gulp serve",
-    "serve": "npm-run-all -p srv:*",
-    "bld:css": "gulp css",
-    "bld:js": "gulp js",
-    "build": "npm-run-all -s bld:*"
+    "develop": "gulp watch",
+    "build": "gulp build"
   },
   "author": "David Perkins <david@prkns.me>",
   "license": "MIT",
