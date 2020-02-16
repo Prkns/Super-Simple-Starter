@@ -1,7 +1,7 @@
 {
-  "name": "static-site-starter",
+  "name": "super-simple-starter",
   "version": "1.0.0",
-  "description": "Starter framework for building sites without data sources",
+  "description": "Simple starter to speed up initial scaffolding of a project without a CMS, data source or front-end framework.",
   "main": "gulpfile.js",
   "scripts": {
     "develop": "gulp watch",
