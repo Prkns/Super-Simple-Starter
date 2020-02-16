@@ -3,6 +3,7 @@ const autoprefixer = require('autoprefixer');
 const browsersync = require('browser-sync').create();
 const cssnano = require('cssnano');
 const del = require('del');
+const discard = require('postcss-discard-comments');
 const eslint = require('gulp-eslint');
 const concat = require('gulp-concat');
 const gulp = require('gulp');
