@@ -20,10 +20,17 @@ const uglify = require('gulp-uglify');
 const configuration = {
   paths: {
     src: {
+      root: './src/',
       html: './src/*.html',
-      scss: ['./src/css/bootstrap.min.css', './src/css/main.css']
+      scss: './src/assets/scss/**/*.scss',
+      js: './src/assets/js/',
+      img: './src/assets/img/'
     },
-    dist: './dist'
+    dist: {
+      root: './dist',
+      css: './dist/assets/css/',
+      img: './dist/assets/img'
+    }
   }
 };
 
@@ -31,7 +38,7 @@ const configuration = {
 function browserSync(done) {
   browsersync.init({
     server: {
-      baseDir: './dist/'
+      baseDir: configuration.paths.dist.root
     },
     port: 3000
   });
@@ -46,14 +53,14 @@ function browserSyncReload(done) {
 
 // Clean assets
 function clean() {
-  return del(['./dist/']);
+  return del(configuration.paths.dist.root);
 }
 
 // Optimize Images
 function images() {
   return gulp
     .src('./src/assets/img/**/*')
-    .pipe(newer('./dist/assets/img'))
+    .pipe(newer(configuration.paths.dist.img))
     .pipe(
       imagemin([
         imagemin.gifsicle({ interlaced: true }),
@@ -69,19 +76,30 @@ function images() {
         })
       ])
     )
-    .pipe(gulp.dest('./dist/assets/img'));
+    .pipe(gulp.dest(configuration.paths.dist.img));
 }
 
 // CSS task
 function css() {
   return gulp
-    .src('./src/assets/scss/**/*.scss')
+    .src(configuration.paths.src.scss)
     .pipe(plumber())
-    .pipe(sass({ outputStyle: 'expanded' }))
-    .pipe(gulp.dest('./dist/assets/css/'))
+    .pipe(
+      sass({
+        includePaths: [
+          'node_modules/normalize.css/',
+          'node_modules/sass-mq/',
+          'node_modules/sass-burger/'
+        ],
+        outputStyle: 'expanded'
+      })
+    )
+    .pipe(gulp.dest(configuration.paths.dist.css))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(gulp.dest('./dist/assets/css/'))
+    .pipe(maps.init())
+    .pipe(postcss([autoprefixer(), cssnano(), discard()]))
+    .pipe(maps.write('.'))
+    .pipe(gulp.dest(configuration.paths.dist.css))
     .pipe(browsersync.stream());
 }
 
@@ -127,7 +145,7 @@ function scriptsMap() {
 function html() {
   return gulp
     .src(configuration.paths.src.html)
-    .pipe(gulp.dest(configuration.paths.dist));
+    .pipe(gulp.dest(configuration.paths.dist.root));
 }
 
 // Watch files
