@@ -1,0 +1,10 @@
+// PX to REM - Usage: font-size: rem(37px);
+@function rem($px, $base: $base-font-size) {
+  @return ($px / $base) * 1rem;
+}
+
+// ACCESS COLOR MAPS - Usage: color: clr(primary); or color: clr(secondary, dark);
+@function clr($base, $shade: base) {
+  $color: map-get(map-get($colors, $base), $shade);
+  @return $color;
+}

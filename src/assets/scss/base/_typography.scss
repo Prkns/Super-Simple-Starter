@@ -1,36 +1,162 @@
+*,
+html,
 body {
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   text-rendering: optimizelegibility;
   text-shadow: rgba(74, 68, 73, 0.01) 0px 0px 1px;
-  font-family: $primary-font;
-  font-weight: 400;
   box-sizing: border-box;
   word-wrap: break-word;
   font-kerning: normal;
   font-size: $base-font-size;
-  line-height: $base-line-height;
+  font-family: $primary-font-family;
+  font-weight: $primary-font-weight;
 }
 
+p {
+  color: $body-text-color;
+}
+
+// Headers
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: $secondary-font;
-  font-weight: 600;
+  font-family: $heading-font;
+  font-weight: $heading-font-weight;
+  margin-top: $header-margin * 1.5;
+  color: $header-color;
+  line-height: $header-line-height;
+  font-weight: 700;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 h1 {
-  font-size: $base-font-size * 3;
-  line-height: $base-line-height * 1.2;
+  font-size: $header-size;
+  margin-bottom: $header-margin;
 }
 
 h2 {
-  font-size: $base-font-size * 2.6;
-  line-height: $base-line-height * 1.1;
+  font-size: $header-size / 1.3;
+  margin-bottom: $header-margin / 1.3;
 }
 
+h3 {
+  font-size: $header-size / 1.5;
+  margin-bottom: $header-margin / 1.5;
+}
+
+h4 {
+  font-size: $header-size / 1.7;
+  margin-bottom: $header-margin / 1.7;
+}
+
+h5 {
+  font-size: $header-size / 1.8;
+  margin-bottom: $header-margin / 1.8;
+}
+
+h6 {
+  font-size: $header-size / 2;
+  margin-bottom: $header-margin / 2;
+}
+
+// Paragraphs
 p {
+  margin-bottom: $paragraph-margin;
+  font-size: $paragraph-size;
+  line-height: $paragraph-line-height;
   color: $body-text-color;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+a {
+  color: $link-color;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: darken($link-color, 20%);
+  }
+}
+
+// Lists
+ul,
+ol {
+  margin: $paragraph-margin 0 0 20px;
+
+  li {
+    margin-top: 10px;
+    line-height: $paragraph-line-height;
+    color: $body-text-color;
+  }
+
+  ul,
+  ol {
+    margin-top: 0;
+  }
+}
+
+ul {
+  li {
+    list-style: disc;
+  }
+
+  ul {
+    li {
+      list-style: circle;
+    }
+  }
+}
+
+ol {
+  li {
+    list-style: decimal;
+  }
+}
+
+// hr
+hr {
+  height: 1px;
+  margin: 0;
+  border: none;
+  background-color: clr(primary, light);
+}
+
+// Figure
+figure {
+  margin: 0;
+
+  img {
+    margin: 0;
+  }
+}
+
+figcaption {
+  margin-top: 10px;
+  color: lighten($body-text-color, 10%);
+  font-size: $paragraph-margin * 0.8;
+}
+
+// Misc Styles
+em,
+i,
+.italic {
+  font-style: italic;
+}
+
+strong,
+b,
+.bold {
+  font-weight: $primary-font-weight-bold;
 }

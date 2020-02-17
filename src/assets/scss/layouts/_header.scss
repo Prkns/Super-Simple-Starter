@@ -2,4 +2,8 @@ header {
   background-color: rgb(230, 230, 230);
   padding-top: 1rem;
   padding-bottom: 1rem;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2em;
 }

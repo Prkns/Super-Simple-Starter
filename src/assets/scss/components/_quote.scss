@@ -1,0 +1,16 @@
+// Blockquote Styles
+$blockquote-color: #505050;
+$blockquote-size: rem(23px);
+$blockquote-line-height: 1.5em;
+$blockquote-margin: $paragraph-margin * 1.5;
+/* --- */
+
+// Blockquote
+blockquote {
+  margin: $blockquote-margin 0;
+  font-size: $blockquote-size;
+  line-height: $blockquote-line-height;
+  color: $blockquote-color;
+  text-align: center;
+  font-style: italic;
+}

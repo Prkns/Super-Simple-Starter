@@ -1,13 +1,17 @@
 button {
-  background-color: rgb(0, 0, 0);
+  background-color: clr(primary);
   color: rgb(255, 255, 255);
   border-color: transparent;
   border-radius: $button-corners;
   outline: none;
   cursor: pointer;
   font-size: inherit;
-  font-family: inherit;
-  font-weight: 700;
+  font-family: $primary-font-family;
+  font-weight: $primary-font-weight;
+
+  &:hover {
+    background-color: clr(primary, dark);
+  }
 
   &:disabled,
   &.disabled {

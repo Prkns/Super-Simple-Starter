@@ -1,19 +1,65 @@
 // Variables
 
-// Colors
-$red: rgb(165, 37, 67);
-$blue: rgb(84, 127, 220);
-$yellow: rgb(240, 214, 83);
-$green: rgb(51, 148, 95);
+/* Colors */
+// Theme Colors
+$primary: rgb(165, 37, 67);
+$secondary: rgb(84, 127, 220);
+$tertiary: rgb(240, 214, 83);
 
-// Typography
-$body-text-color: rgb(50, 50, 50);
+// Defaults
+$white: #fff;
+$black: #444a51;
 
+// Variations
+$lighten: 5;
+$darken: 25;
+
+$colors: (
+  primary: (
+    base: $primary,
+    light: lighten($primary, $lighten),
+    dark: darken($primary, $darken)
+  ),
+  secondary: (
+    base: $secondary,
+    light: lighten($secondary, $lighten),
+    dark: darken($secondary, $darken)
+  ),
+  tertiary: (
+    base: $tertiary,
+    light: lighten($tertiary, $lighten),
+    dark: darken($tertiary, $darken)
+  )
+);
+/* --- */
+
+/* Typography */
+// Fonts
+$primary-font-family: 'DM Sans', sans-serif;
+$primary-font-weight: 400;
+$primary-font-weight-bold: 600;
+
+$heading-font: 'Poppins', sans-serif;
+$heading-font-weight: 600;
+
+// Sizes
 $base-font-size: 16px;
-$base-line-height: 1.1rem;
 
-$primary-font: 'DM Sans', sans-serif;
-$secondary-font: 'Poppins', sans-serif;
+// Paragraph Styles
+$body-text-color: rgb(50, 50, 50) !default;
+$paragraph-size: rem(18px);
+$paragraph-line-height: 1.5em;
+$paragraph-margin: 20px;
 
-// Buttons
-$button-corners: 0.4rem;
+// Header Styles
+$header-color: #000000;
+$header-size: rem(40px);
+$header-line-height: 1.25em;
+$header-margin: $paragraph-margin * 1.2;
+
+// Links
+$link-color: dodgerblue; // 😎
+/* --- */
+
+/* Buttons */
+$button-corners: 1.5rem;
